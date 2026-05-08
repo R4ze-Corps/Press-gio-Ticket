@@ -1,0 +1,9 @@
+{
+  "canallogfarm": "1501726104719851566",
+  "categoriaFarm": "1501726104572919930",
+  "cargos": {
+    "aprovado": "ID_CARGO_APROVADO",
+    "membroFarm": "ID_CARGO_MEMBRO_FARM",
+    "temporario": "ID_CARGO_TEMPORARIO"
+  }
+}
