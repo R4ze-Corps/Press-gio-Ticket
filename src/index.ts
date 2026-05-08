@@ -17,7 +17,7 @@ await bootstrap({
     makeCache: Options.cacheWithLimits({ MessageManager: 200 }),
   },
   commands: {
-    guilds: ["1501726101783707792"],
+    guilds: ["1500607972605296713"],
   },
   slashCommands: [farmCmd],
   responders: [botoesFarm, modalButton, fecharCanal, finalizarCanal, verEntregas, selectProduto],
