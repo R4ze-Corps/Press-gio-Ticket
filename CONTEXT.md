@@ -38,7 +38,7 @@ Cada membro possui **uma única mensagem de log** no canal de logs. O bot edita 
 
 📦 INVENTÁRIO / METAS
 > 🔸 Ferro | 150/250 ⏳
-> 🔸 Plástico | 250/250 ✅
+> 🔸 Polímero | 250/250 ✅
 > 🔸 Níquel | 0/250 ⏳
 
 📊 Status: ⏳ Em andamento
