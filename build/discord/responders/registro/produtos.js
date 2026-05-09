@@ -1,7 +1,9 @@
 export const PRODUTOS = [
-    { value: "produto_a", label: "Produto A", meta: 10 },
-    { value: "produto_b", label: "Produto B", meta: 10 },
-    { value: "produto_c", label: "Produto C", meta: 10 },
+    { value: "ferro", label: "Ferro", meta: 250 },
+    { value: "plastico", label: "Plástico", meta: 250 },
+    { value: "niquel", label: "Níquel", meta: 250 },
+    { value: "carca_bateria", label: "Carça de Bateria", meta: 250 },
+    { value: "tecido", label: "Tecido", meta: 250 },
 ];
 export function getProduto(value) {
     return PRODUTOS.find((p) => p.value === value);
