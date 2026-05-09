@@ -13,6 +13,13 @@ export default localCreateResponder({
     try {
         await interaction.deferReply({ ephemeral: true });
 
+        const allowedRoles = ["1500609714214670387", "1500609737732133055"];
+        const memberRoles = interaction.member.roles.cache;
+        const hasPermission = allowedRoles.some((id: string) => memberRoles.has(id));
+        if (!hasPermission) {
+            return await interaction.editReply({ content: "❌ Você não tem permissão para usar este botão." });
+        }
+
         const userId = interaction.customId.split("_")[1];
         const member = await interaction.guild.members.fetch(userId).catch(() => null);
         if (!member) {

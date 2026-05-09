@@ -133,9 +133,11 @@ export default localCreateResponder({
                       let novaQtd = quantidade;
                       const qtdMatch = statusTexto.match(/^(\d+)\/(\d+)/);
                       if (qtdMatch) novaQtd += parseInt(qtdMatch[1]);
-                      if (novaQtd >= meta) {
+                      if (novaQtd === meta) {
                           productLines.push(`> 🔸 ${produto.label} | \`Concluído ✅\``);
                           totalConcluidos++;
+                      } else if (novaQtd > meta) {
+                          productLines.push(`> 🔸 ${produto.label} | \`${novaQtd}/${meta}\``);
                       } else {
                           productLines.push(`> 🔸 ${produto.label} | \`${novaQtd}/${meta} ⏳\``);
                       }
@@ -151,9 +153,11 @@ export default localCreateResponder({
 
           if (!produtoAtualizado) {
             totalProdutos++;
-            if (quantidade >= meta) {
+            if (quantidade === meta) {
               productLines.push(`> 🔸 ${produto.label} | \`Concluído ✅\``);
               totalConcluidos++;
+            } else if (quantidade > meta) {
+              productLines.push(`> 🔸 ${produto.label} | \`${quantidade}/${meta}\``);
             } else {
               productLines.push(`> 🔸 ${produto.label} | \`${quantidade}/${meta} ⏳\``);
             }
@@ -190,7 +194,7 @@ export default localCreateResponder({
           await mensagemExistente.edit({ embeds: [embed], components: [] });
 
         } else {
-          const statusInicial = quantidade >= meta ? "Concluído ✅" : `${quantidade}/${meta} ⏳`;
+          const statusInicial = quantidade === meta ? "Concluído ✅" : quantidade > meta ? `${quantidade}/${meta}` : `${quantidade}/${meta} ⏳`;
           const statusGeral = quantidade >= meta ? "✅ Finalizado" : "⏳ Em andamento";
           const observacaoPadrao = "(Adicione observações aqui, se necessário)";
           const staffContent = `🎯 **REGISTRO DE FARM Diário** 🎯\n${separator}\n👤 **Membro:** ${interaction.user}\n🕒 **Data/Hora:** ${currentDate}\n\n📦 **INVENTÁRIO / METAS**\n> 🔸 ${produto.label} | \`${statusInicial}\`\n\n📊 **Status:** ${statusGeral}\n📝 **Notas:** ${observacaoPadrao}\n${separator}`;
